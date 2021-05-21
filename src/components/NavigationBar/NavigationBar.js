@@ -1,14 +1,9 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Navbar, Nav, Container, Row, Col, Image } from 'react-bootstrap';
 
 import SobreMi from '../SobreMi/SobreMi';
-
-
-// Estilos
-import 'react-toastify/dist/ReactToastify.css';
-
+import Projects from '../Projects/Projects';
 
 function NavigationBar() {
   return (
@@ -25,9 +20,9 @@ function NavigationBar() {
           <Navbar.Collapse id="basic-navbar-nav">
 
             <Nav className="mr-auto">
-              <Nav.Link href="/sobre-mi"> Sobre mí </Nav.Link>
-              <Nav.Link href="/proyectos"> Proyectos </Nav.Link>
-              <Nav.Link href="/contacto"> Contacto </Nav.Link>
+              <Link to="/sobre-mi" className="nav-link"> Sobre mí </Link>
+              <Link to="/proyectos" className="nav-link">  Proyectos  </Link>
+              <Link to="/contacto" className="nav-link"> Contacto   </Link>
             </Nav>
 
           </Navbar.Collapse>
@@ -37,10 +32,10 @@ function NavigationBar() {
         <Container fluid>
           <Row>
             <Col>
-
               <Route exact path="/" render = { () => {
                   return <div>
-                    <h1>Home</h1>                    
+                    <h1>Home</h1>
+                    <Image src="https://placeimg.com/900/650/animals" fluid className="rounded mx-auto d-block" />
                   </div>
               }}/>
 
@@ -52,7 +47,7 @@ function NavigationBar() {
 
               <Route exact path="/proyectos" render = { () => {
                 return <div>
-                  <h1>Proyectos</h1>
+                  <Projects />
                 </div>
               }}/>
 
@@ -66,7 +61,6 @@ function NavigationBar() {
           </Row>
         </Container>
 
-          <ToastContainer /> 
         </Router>
 
       </div>
